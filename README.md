@@ -111,14 +111,29 @@ build({
 
 ## FAQ
 
-_**How do I set up the build?**_
+### How do I set up the build?
 You'll need a `tsconfig.json` with `jsx` set to `react`. I would run my entrypoint with `ts-node --transpile-only` (for speed and ease of use), and serve the output locally with `npx serve`.
 
-_**How should I structure my project?**_
+### How should I structure my project?
 As your project grows, you can put your data, pages and partials into separate files, to keep things nice and tidy. Other than that, just do whatever makes sense for your use case.
 
-_**Do I need TypeScript?**_
-No, it works fine with JS/JSX, or just plain `React.createElement` calls. But for sanity's sake you'll probably want to write your templates as JSX, and then, if you're doing transpilation anyway, you might as well go with TypeScript, right?
+### Do I need TypeScript?
+No, it works fine with JS/JSX, or just plain `React.createElement` calls. But for sanity's sake you'll probably want to write your templates as JSX, and then, if you're doing transpilation anyway, you might as well go with TypeScript, right? Anyway, Here is a minimal JS example:
 
-_**Does it hydrate?**_
+```js
+let React = require('react');
+let {build} = require('tsx-ssg');
+
+build({
+  to: 'output',
+  pages: [
+    {
+      path: '/index.html',
+      content: () => React.createElement('h1', null, 'Hello world')
+    }
+  ]
+});
+```
+
+### Does it hydrate?
 No, this is not for isomorphic React applications. If you want React on the client side, I suggest building that into a separate client-side bundle.
