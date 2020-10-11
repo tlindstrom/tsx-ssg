@@ -16,7 +16,7 @@ After creating your page definitions, you just pass them to the `build` function
 For convenience, `build` also takes an optional `copyAssetsFrom` parameter, for copying static assets into your build, in case you don't need a fancy assets pipeline and just want to copy in some plain CSS, JS and such.
 
 ```tsx
-import * as React from 'react'; // With the new JSX transform in React 17, we should be able to get rid of this import soon
+import * as React from 'react';
 import { build } from "tsx-ssg";
 
 build({
@@ -27,14 +27,7 @@ build({
       path: '/index.html',
       content: () => <>
         <h1>Hello, world!</h1>
-        <p>Lorem ipsum dolor sit hamburger</p>
-      </>
-    },
-    {
-      path: '/about.html',
-      content: () => <>
-        <h1>This is the about page</h1>
-        <p>Lorem ipsum dolor sit cauliflower</p>
+        <p>Lorem ipsum dolor sit amet</p>
       </>
     }
   ]

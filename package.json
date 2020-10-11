@@ -1,6 +1,6 @@
 {
   "name": "tsx-ssg",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Minimalist static site generation with TypeScript and JSX",
   "license": "MIT",
   "author": {
